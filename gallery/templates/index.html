@@ -17,14 +17,13 @@
 <body>
         <div class="container">
               <nav class="navbar navbar-expand-sm navbar-light" style="background-color:aquamarine">
-        <a class="navbar-brand" href="welcome">
+        <a class="navbar-brand" href="#">
             <img src="static/index.png" alt="">
             Personal Gallery
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynav">
             <span class="navbar-toggler-icon"></span>
         </button>
-
 
         <div class="collapse navbar-collapse" id="mynav">
             <ul class="navbar-nav">
@@ -43,7 +42,7 @@
 
     </nav>
 
-    <div class="container">
+    <div class="container" style="padding-bottom:60px;">
         <div class="jumbotron">
             {% for image in images %}
             <div class="card-deck">
