@@ -3,10 +3,12 @@ from django.db import models
 class Category(models.Model):
     category_name = models.CharField(max_length=40)
 
-    def __str__(self):
-        return self(category_name)
     class Meta:
         ordering = ['category_name']
+
+    def __str__(self):
+        return self(category_name)
+
     def save_category(self):
         self.save()
 
@@ -33,16 +35,19 @@ class Image(models.Model):
     image_location=models.ForeignKey(Location, null=True)
     image_category=models.ManyToManyField(Category)
 
+    class Meta:
+        ordering = ['image_name']
+
     def __str__(self):
         return self.image_name
-
-    @classmethod
-    def images_all(cls):
-        images = cls.objects.all()
-        return images
 
     def save_image(self):
         self.save()
 
     def delete_image(self):
         self.delete()
+
+    @classmethod
+    def images_all(cls):
+        images = cls.objects.all()
+        return images
