@@ -1,28 +1,64 @@
-{% load bootstrap3 %}
-{% load static%}
+<!-- {% load bootstrap3 %}
+{% load static%} -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    {% block styles %}
-        <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
-    {% endblock %}
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
+
 <body>
-    {% include "navbar.html" %}
+
+    <!-- {% include "navbar.html" %}
     {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     {% bootstrap_javascript %}
-    {% endblock %}
-    {% for image in images %}
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-            {{ image.image_description}}
-            <img src="{{ image.image.url }}" class="img-responsive" alt="Image" height="420" width="420">
+    {% endblock %} -->
+    <nav class="navbar navbar-expand-sm navbar-light" style="background-color:aquamarine">
+        <a class="navbar-brand" href="welcome">
+            <img src="/static/index.png" alt="">
+            Personal Gallery
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mynav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="welcome">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="welcome">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="welcome">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="jumbotron">
+            {% for image in images %}
+            <div class="carg-group">
+                <div class="card">
+                    <img src="{{ image.image.url }}" class="card-img-top" style="max-height:250px">
+                    <div class="card-header">{{ image.image_description}}</div>
+                    <!-- <div class="card-body">Body</div> -->
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
-    {% endfor %}
-    </body>
+</body>
+
 </html>
