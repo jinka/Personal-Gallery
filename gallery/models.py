@@ -1,13 +1,21 @@
 from django.db import models
 
+class Category(models.Model):
+    category_name = models.CharField(max_length=40)
+
+    def __str__(self):
+        return self
+
 class Location(models.Model):
     location_name = models.CharField(max_length=40)
 
     def __str__(self):
         return self.location_name
+    def save_category(self):
+        self.save()
 
-class Category(models.Model):
-    category_name = models.CharField(max_length=40)
+    def delete_category(self):
+        self.delete()
 
 class Image(models.Model):
     image=models.ImageField(upload_to = '')
@@ -21,12 +29,12 @@ class Image(models.Model):
 
     @classmethod
     def images_all(cls):
-        images = cls.objects.filter()
+        images = cls.objects.all()
         return images
-
-    class Meta:
-        ordering = ['image_name']
 
     def save_image(self):
         self.save()
+
+    def delete_image(self):
+        self.delete()
 

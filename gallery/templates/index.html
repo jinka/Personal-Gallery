@@ -25,7 +25,7 @@
     {% endblock %} -->
     <nav class="navbar navbar-expand-sm navbar-light" style="background-color:aquamarine">
         <a class="navbar-brand" href="welcome">
-            <img src="/static/index.png" alt="">
+            <img src="static/index.png" alt="">
             Personal Gallery
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynav">
@@ -49,11 +49,11 @@
     <div class="container-fluid">
         <div class="jumbotron">
             {% for image in images %}
-            <div class="carg-group">
+            <div class="card-deck">
                 <div class="card">
-                    <img src="{{ image.image.url }}" class="card-img-top">
                     <div class="card-header">{{ image.image_name}}</div>
                     <div class="card-body">{{ image.image_description}}</div>
+                    <img src="{{ image.image.url }}" class="card-img-top">
                 </div>
             </div>
             {% endfor %}
