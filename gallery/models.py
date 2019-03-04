@@ -4,17 +4,26 @@ class Category(models.Model):
     category_name = models.CharField(max_length=40)
 
     def __str__(self):
-        return self
+        return self(category_name)
+    class Meta:
+        ordering = ['category_name']
+    def save_category(self):
+        self.save()
+
+    def delete_category(self):
+        self.delete()
+
 
 class Location(models.Model):
     location_name = models.CharField(max_length=40)
 
     def __str__(self):
         return self.location_name
-    def save_category(self):
+
+    def save_location(self):
         self.save()
 
-    def delete_category(self):
+    def delete_location(self):
         self.delete()
 
 class Image(models.Model):
@@ -37,4 +46,3 @@ class Image(models.Model):
 
     def delete_image(self):
         self.delete()
-
