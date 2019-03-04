@@ -51,9 +51,9 @@
             {% for image in images %}
             <div class="carg-group">
                 <div class="card">
-                    <img src="{{ image.image.url }}" class="card-img-top" style="max-height:250px">
-                    <div class="card-header">{{ image.image_description}}</div>
-                    <!-- <div class="card-body">Body</div> -->
+                    <img src="{{ image.image.url }}" class="card-img-top">
+                    <div class="card-header">{{ image.image_name}}</div>
+                    <div class="card-body">{{ image.image_description}}</div>
                 </div>
             </div>
             {% endfor %}
