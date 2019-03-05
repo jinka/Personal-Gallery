@@ -15,8 +15,8 @@
 </head>
 
 <body>
-        <div class="container">
-              <nav class="navbar navbar-expand-sm navbar-light" style="background-color:aquamarine">
+      <div class="container">
+      <nav class="navbar navbar-expand-sm navbar-light" style="background-color:aquamarine">
         <a class="navbar-brand" href="#">
             <img src="static/index.png" alt="">
             Personal Gallery
@@ -41,17 +41,19 @@
       </div>
 
     </nav>
-    <div class="jumbotron jumbotron-fluid bg-info text-white text-center" style="background:#aaa;">
+    <!-- <div class="jumbotron jumbotron-fluid bg-info text-white text-center" style="background:#aaa;">
       <div class="container">
-        <h1 class="display-1">Welcome to my Personal Gallery</h1>
+        <h5 class="display-4">Welcome to my Personal Gallery</h5>
         <p class="lead">Different Images and From Different Locations</p>
 
       </div>
-    </div>
+    </div> -->
     <div class="container text-muted">
         <div class="jumbotron">
-            <div class="row">
-              <div class="col-md-6 col-lg-3">
+            <!-- <div class="row-fluid">
+              <div class="col-md-6 col-lg-3"> -->
+              <div class="card-group">
+
                 {% for image in images %}
                     <div class="card">
                       <img src="{{ image.image.url }}" class="card-img-top img-fluid">
@@ -61,11 +63,12 @@
                     </div>
                 </div>
                 {% endfor %}
+              </div>
 
               </div>
             </div>
-        </div>
-    </div>
+        <!-- </div>
+    </div> -->
 </body>
 
 </html>
