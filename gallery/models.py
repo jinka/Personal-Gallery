@@ -3,11 +3,11 @@ from django.db import models
 class Category(models.Model):
     category_name = models.CharField(max_length=40)
 
-    class Meta:
-        ordering = ['category_name']
+    # class Meta:
+    #     ordering = ['category_name']
 
-    def __str__(self):
-        return self(category_name)
+    # def __str__(self):
+    #     return self(categories)
 
     def save_category(self):
         self.save()
