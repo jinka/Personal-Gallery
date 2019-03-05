@@ -42,17 +42,22 @@
 
     </nav>
 
-    <div class="container" style="padding-bottom:60px;">
+    <div class="container text-muted">
         <div class="jumbotron">
-            {% for image in images %}
-            <div class="card-deck">
-                <div class="card">
-                    <div class="card-header">{{ image.image_name}}</div>
-                    <div class="card-body">{{ image.image_description}}</div>
-                    <img src="{{ image.image.url }}" class="card-img-top">
+            <div class="row">
+              <div class="col-md-6 col-lg-3">
+                {% for image in images %}
+                    <div class="card">
+                      <img src="{{ image.image.url }}" class="card-img-top img-fluid">
+                      <div class="card-block">
+                        <h3 class="card-title">{{ image.image_name}}</h3>
+                        <div class="card-body">{{ image.image_description}}</div>
+                    </div>
                 </div>
+                {% endfor %}
+
+              </div>
             </div>
-            {% endfor %}
         </div>
     </div>
 </body>
