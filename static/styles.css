@@ -1,11 +1,11 @@
- /* Style the Image Used to Trigger the Modal */
+ /* Style the Image Used to Trigger the Modal
  #myImg {
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
-}
+} */
 
-#myImg:hover {opacity: 0.7;}
+/* #myImg:hover {opacity: 0.7;} */
 
 /* The Modal (background) */
 .modal {
@@ -63,13 +63,13 @@
   font-weight: bold;
   transition: 0.3s;
 }
-
+/* 
 .close:hover,
 .close:focus {
   color: #bbb;
   text-decoration: none;
   cursor: pointer;
-}
+} */
 
 /* 100% Image Width on Smaller Screens */
 @media only screen and (max-width: 700px){
