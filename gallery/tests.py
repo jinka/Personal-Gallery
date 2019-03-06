@@ -1,18 +1,12 @@
 from django.test import TestCase
-from . models import Image
+from . models import Image,Category,Location
 
 # Create your tests here.
-class ImageTestClass(TestCase):
+class CategoryTestClass(TestCase):
     def setup(self):
-        self.image1=Image(image="Animal",image_name="Dog",image_description="White Red",image_location="Kenya",image_category="jjjj")
+        self.animal = Category(category_name = 'Animals')
 
-
-# Testing instance
+# Testing  instance
     def test_instance(self):
-        self.assertTrue(isinstance(self.image1,Image))
+        self.assertTrue(isinstance(self.animal,Category))
 
-# Testing Save Mothod
-    # def test_save_method(self):
-    #     self.image.save_image()
-    #     image = Image.objects.all()
-    #     self.assertTrue(len(image)>0)

@@ -3,11 +3,11 @@ from django.db import models
 class Category(models.Model):
     category_name = models.CharField(max_length=40)
 
-    # class Meta:
-    #     ordering = ['category_name']
+    class Meta:
+        ordering = ['category_name']
 
-    # def __str__(self):
-    #     return self(categories)
+    def __str__(self):
+        return self.category_name
 
     def save_category(self):
         self.save()
@@ -56,7 +56,13 @@ class Image(models.Model):
         images = cls.objects.all()
         return images
 
+
     @classmethod
-    def search_by_location(cls,image_location):
-        image = cls.objects.filter(location=image_location)
-        return image
+    def search_by_image(cls,search_image):
+        images_name = cls.objects.filter(image_name__icontains=search_image)
+        return images_name
+
+    @classmethod
+    def search_by_catehory(cls,search_category):
+        images = cls.objects.filter(image_category__category_name__icontains=search_category)
+        return images

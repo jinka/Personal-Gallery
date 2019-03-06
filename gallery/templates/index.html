@@ -1,73 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+{% load static%}
+{% load static %}
+{% load bootstrap3 %}
+{% block styles %}
+{% bootstrap_css %}
+{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <title>Document</title>
-</head>
+{% include "navbar.html" %}
 
-<body>
-      <div class="container">
-      <nav class="navbar navbar-expand-sm navbar-light" style="background-color:aquamarine">
-        <a class="navbar-brand" href="#">
-            <img src="static/index.png" alt="">
-            Personal Gallery
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mynav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+{% block content %}
+ {{ block.super }}  
+    {% for image in images %}
+    
+      <div class="col-md-6 col-lg-3" style="width:30%;display:inline-block">
+      <img id="myImg" src="{{ image.image.url }}" data-toggle="modal" data-target="#myModal{{img.id}}" style="width:100%;max-width:300px">
+      <!-- <h3 class="card-title">{{ image.image_name}}</h3> -->
+      <div class="card-body">{{ image.image_description}}</div>
 
-        <div class="collapse navbar-collapse" id="mynav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-            </ul>
-        </div>
+      <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption">{{ image.image_name}}</div>
       </div>
 
-    </nav>
-    <!-- <div class="jumbotron jumbotron-fluid bg-info text-white text-center" style="background:#aaa;">
-      <div class="container">
-        <h5 class="display-4">Welcome to my Personal Gallery</h5>
-        <p class="lead">Different Images and From Different Locations</p>
-
-      </div>
-    </div> -->
-    <div class="container text-muted">
-        <div class="jumbotron">
-            <!-- <div class="row-fluid">
-              <div class="col-md-6 col-lg-3"> -->
-              <div class="card-group">
-                {% for image in images %}
-                    <div class="card w-100" style="width-500px">
-                      <img src="{{ image.image.url }}" class="card-img-top">
-                      <!-- <div class="card-block"> -->
-                        <h3 class="card-title">{{ image.image_name}}</h3>
-                        <div class="card-body">{{ image.image_description}}</div>
-                    </div>
-                <!-- </div> -->
-                {% endfor %}
-              </div>
-
-              </div>
-            </div>
-        <!-- </div>
-    </div> -->
-</body>
-
-</html>
+    </div>
+  </div>
+    {% endfor %}
+{% endblock %}
