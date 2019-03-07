@@ -5,7 +5,7 @@ This is a web application to share photos and was generated with Python 3, Djang
 
 # Project Description
 *******************
-Users can view photos, enlarge, search.
+Users can view photos, enlarge, search. App has different categories and locations. User can search image by category example Animals, education and so.
 
 # Setup/Installation Requirements
 *********************************
@@ -19,6 +19,11 @@ Users can view photos, enlarge, search.
 # Specifications
 |Given|When|Then|
 |-----|----|----|
+|Run Page|Loading Page|View Different Images|
+|Search input|Education|View education images from different locations|
+|Search input|Animals|View different animal images|
+|Click photo|User click an image|Enlarge the image and show the description and location|
+|Click link|User click and image link|Copy link image |
 
 
 # Author information
