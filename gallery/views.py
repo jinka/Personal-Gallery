@@ -5,6 +5,7 @@ from django.db import models
 
 # Create your views here.
 
+
 def welcome(request):
     images = Image.images_all
     return render(request, 'index.html',{"images":images})
