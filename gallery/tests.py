@@ -3,7 +3,7 @@ from . models import Image,Category,Location
 
 # Create your tests here.
 class CategoryTestClass(TestCase):
-    def setup(self):
+    def setUp(self):
         self.animal = Category(category_name = 'Animals')
 
 # Testing  instance
